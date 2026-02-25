@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Subasta de Fútbol - GitHub Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="pantalla-inicio" class="overlay">
+        <div class="card-inicio">
+            <h1>SUBASTA DE FÚTBOL</h1>
+            <input type="number" id="input-jugadores" min="2" max="6" value="2">
+            <p>¿Cuántos amigos juegan?</p>
+            <button onclick="iniciarJuego()">EMPEZAR</button>
+        </div>
+    </div>
+
+    <div id="vista-subasta" style="display:none;">
+        <div class="header-subasta">
+            <h2 id="fase-label">FASE: PORTEROS</h2>
+            <div class="marcador-puja">PUJA ACTUAL: <span id="valor-puja">0</span>M</div>
+        </div>
+
+        <div class="carta-central">
+            <div id="player-photo" class="foto"></div>
+            <div class="info-jugador">
+                <h2 id="player-name">NOMBRE</h2>
+            </div>
+        </div>
+
+        <button class="btn-vendido" onclick="abrirSeleccionPosicion()">¡VENDIDO!</button>
+
+        <div class="player-bar" id="barra-jugadores"></div>
+    </div>
+
+    <div id="vista-campo" style="display:none;">
+        <div class="campo-header">
+            <button onclick="cerrarCampo()">← Volver</button>
+            <h2 id="titulo-campo">Alineación</h2>
+            <select id="select-formacion" onchange="cambiarTactica(this.value)">
+                <option value="4-4-2">4-4-2</option><option value="4-3-3">4-3-3</option>
+                <option value="3-5-2">3-5-2</option><option value="4-5-1">4-5-1</option>
+                <option value="4-3-2-1">4-3-2-1</option><option value="4-1-3-2">4-1-3-2</option>
+                <option value="5-4-1">5-4-1</option><option value="4-1-2-1-2">4-1-2-1-2</option>
+                <option value="5-3-2">5-3-2</option><option value="4-2-3-1">4-2-3-1</option>
+                <option value="3-2-4-1">3-2-4-1</option><option value="2-3-5">2-3-5</option>
+                <option value="4-2-4">4-2-4</option>
+            </select>
+        </div>
+        <div id="dibujo-campo"></div>
+    </div>
+
+    <script src="jugadores.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
